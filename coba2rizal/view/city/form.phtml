@@ -1,0 +1,15 @@
+<a href="<?= $this->url("/city/list") ?>">Back To List</a>
+
+<form method="post" action="<?= $this->url(sprintf("/city/%d", $city->id)) ?>">
+    <?= $this->csrf() ?>
+    <div>
+        <label>ID</label>
+        <input type="text" readonly="readonly" placeholder="Auto Generated" name="id" value="<?= $city->id ?>" />
+    </div>
+    <div>
+        <label>City Name</label>
+        <input type="text" name="city_name" value="<?= $city->city_name ?>" />
+    </div>
+    <div>
+        <input type="submit" value="Submit" />
+</form>

@@ -1,0 +1,13 @@
+<form method="post" action="<?= $this->url(sprintf("/slot/formisian")) ?>">
+    <?= $this->csrf() ?>
+    <div>
+        <label>Status</label>
+        <select name="status" id="status">
+            <option value="">--- Choose a Status ---</option>
+            <option value="Full">Full</option>
+            <option value="Avalaible">Avalaible</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Submit" />
+</form>

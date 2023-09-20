@@ -1,0 +1,36 @@
+<html>
+<head>
+<title><?= $title ?? "coba2rizal" ?></title>
+
+<!-- Load css or js define in action -->
+<?= $this->headLink()
+    ->prependStylesheet($this->url("css/style.css"))
+?>
+
+<?= $this->headScript()
+    ->prependFile($this->url("js/dist/main.js"), "text/javascript" , ["defer" => true])
+?>
+
+</head>
+<body>
+<?= $this->navigation()->render() ?>
+<h1><?= $content_title ?></h1>
+<?php
+$flash = $this->flash()->all();
+foreach ($flash as $key => $val) {
+    if (count($val)) {
+        echo "<ul>";
+    }
+    foreach ($val as $message) {
+        echo sprintf("<li>%s : %s</li>", $key, $message);
+    }
+    if (count($val)) {
+        echo "</ul>";
+    }
+}
+?>
+<div>
+<?= $content ?>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+*.swp
+*.bak
+.env
+build
+dist
+*.dist
+*.dist.*
+auth
+*~
+.composer
+composer.lock
+*.tar.gz
+*.zip
+.phpunit.result.cache
+docker-compose.yml
+docker-compose.env

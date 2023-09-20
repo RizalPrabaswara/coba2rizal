@@ -1,0 +1,10 @@
+parameters:
+    level: 5
+    paths:
+        - coba2rizal/src
+    phpVersion: 80100
+    bootstrapFiles:
+        - coba2rizal/public/index.php
+        - phpstan.alias.php
+    reportUnmatchedIgnoredErrors: false
+    inferPrivatePropertyTypeFromConstructor: true

@@ -1,0 +1,28 @@
+<?php
+declare(strict_types=1);
+
+namespace coba2rizal;
+
+use DI;
+
+return [
+    "view" => [
+        "template_path" => __DIR__."/../view/",
+    ],
+    "asset" => [
+        "resolver_configs" => [
+            "paths" => [
+                __DIR__."/../asset/",
+                __DIR__."/../node_modules/"
+            ]
+        ]
+    ],
+    "view_helpers" => [
+        "aliases" => [
+            "navigation" => View\Helper\NavigationHelper::class,
+        ],
+        "factories" => [
+            View\Helper\NavigationHelper::class => View\Helper\Factory\NavigationHelperFactory::class,
+        ]
+    ]
+];

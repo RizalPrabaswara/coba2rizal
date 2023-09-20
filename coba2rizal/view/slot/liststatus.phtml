@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>ID Shelf</th>
+            <th>Slot Name</th>
+            <th>Status</th>
+            <th>History</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($slots_status as $slot) : ?>
+            <tr>
+                <?= sprintf("<td>%s</td>", $slot->id_shelf); ?>
+                <?= sprintf("<td>%s</td>", $slot->slot_name); ?>
+                <?= sprintf("<td>%s</td>", $slot->status); ?>
+                <?= sprintf("<td>%s</td>", $slot->slot_modification_date); ?>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

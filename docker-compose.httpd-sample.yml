@@ -1,0 +1,52 @@
+version: "3.2"
+
+services:
+    app:
+        build:
+            context: ./docker/php-apache-ext
+            args:
+                - PHP_VERSION=${PHP_VERSION:-8.1}
+        image: php:${PHP_VERSION:-8.1}-apache-ext
+        container_name: wiryonolau/coba2rizal_app_${USERID:-1000}
+        ports:
+            - ${HTTP_PORT:-8080}:80
+        environment:
+            - APACHE_RUN_GROUP=#${GROUPID:-1000}
+            - DB_USERNAME=coba2rizal
+            - DB_PASSWORD=888888
+            - DB_DATABASE=coba2rizal
+            - DB_HOSTNAME=db
+            - DB_PORT=3306
+            - DB_DRIVER=pdo_mysql
+        volumes:
+            - ./coba2rizal:/var/www/html
+            - ./etc/apache2/sites-enabled:/etc/apache2/sites-enabled
+            - ./usr/local/etc/php/php.ini:/usr/local/etc/php/php.ini
+        restart: unless-stopped
+        depends_on:
+            - db
+    db:
+        image: mariadb:10.6
+        container_name: wiryonolau/coba2rizal_db_${USERID:-1000}
+        ports:
+            - ${MYSQL_PORT:-3306}:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=888888
+            - MYSQL_USER=coba2rizal
+            - MYSQL_PASSWORD=888888
+            - MYSQL_DATABASE=coba2rizal
+        command:
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
+        healthcheck:
+            test:
+                - "CMD"
+                - "mysqladmin"
+                - "ping"
+                - "--user=$$MYSQL_USER"
+                - "--password=$$MYSQL_PASSWORD"
+                - "-h"
+                - "localhost"
+            timeout: 5s
+            retries: 10
+        restart: unless-stopped

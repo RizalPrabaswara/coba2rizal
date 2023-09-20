@@ -1,0 +1,25 @@
+<a href="<?= $this->url("/user/list", ["create" => 1])?>">Add New User</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($users as $user) : ?>
+        <tr>
+            <?= sprintf("<td>%s</td>", $user->username); ?>
+            <?= sprintf("<td>%s</td>", $user->email); ?>
+            <td>
+                <ul class="row-action">
+                    <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/user/%d", $user->id))); ?>
+                    <?= sprintf("<li><a href=\"%s\">Delete</a></li>", $this->url(sprintf("/user/%d", $user->id), ["delete" => 1])); ?>
+                </ul>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

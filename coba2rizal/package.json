@@ -1,0 +1,14 @@
+{
+  "name": "coba2rizal",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "build": "babel ./asset/js/src/ -d asset/js/dist/ --source-maps"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/preset-react": "^7.16.7",
+    "babel-preset-minify": "^0.5.1"
+  }
+}
