@@ -1,20 +1,23 @@
 <a href="<?= $this->url("/slot/list", ["create" => 1]) ?>">Add New Slot</a>
-<a href="<?= $this->url("/slot/liststatus", ["status"]) ?>">List Status</a>
+<a href="<?= $this->url("/slot/list", ["statusfull" => 1]) ?>">List Status Full</a>
+<a href="<?= $this->url("/slot/list", ["statusavalaible" => 1]) ?>">List Status Avalaible</a>
 <table>
     <thead>
         <tr>
             <th>ID Shelf</th>
             <th>Slot Name</th>
             <th>Status</th>
+            <th>History</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($slots as $slot) : ?>
+        <?php foreach ($slots_status as $slot) : ?>
             <tr>
                 <?= sprintf("<td>%s</td>", $slot->id_shelf); ?>
                 <?= sprintf("<td>%s</td>", $slot->slot_name); ?>
                 <?= sprintf("<td>%s</td>", $slot->status); ?>
+                <?= sprintf("<td>%s</td>", date('D', strtotime($slot->slot_modification_date))); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/slot/%d", $slot->id))); ?>

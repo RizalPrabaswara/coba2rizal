@@ -15,4 +15,17 @@ class CityModel extends AbstractModel
 {
     protected $id;
     protected $city_name;
+
+    //protected $name = 'Building';
+
+    public function __construct()
+    {
+        //$this->load->model(BuildingModel::class);
+        //$this->city_name = BuildingModel::class;
+    }
+
+    public function building()
+    {
+        return $this->HasMany(BuildingModel::class, 'id_city');
+    }
 }

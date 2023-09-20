@@ -18,21 +18,21 @@ class SlotProvider
         $this->slotRepository = $slotRepository;
     }
 
-    // public function listStatus(String $data): Traversable
-    // {
-    //     $status = array("status='.$data.'");
-    //     $result = $this->slotRepository->getRows(array_values($status));
-    //     //$result = $this->slotRepository->getRowCount();
-    //     return $result->getRows(new CollectionModel(new SlotModel()));
-    // }
-
-    public function listStatus(): Traversable
+    public function listStatus(String $data): Traversable
     {
-        $status = array("status='Avalaible'");
+        $status = array("status='{$data}'");
         $result = $this->slotRepository->getRows(array_values($status));
         //$result = $this->slotRepository->getRowCount();
         return $result->getRows(new CollectionModel(new SlotModel()));
     }
+
+    // public function listStatus(): Traversable
+    // {
+    //     $status = array("status='Avalaible'");
+    //     $result = $this->slotRepository->getRows(array_values($status));
+    //     //$result = $this->slotRepository->getRowCount();
+    //     return $result->getRows(new CollectionModel(new SlotModel()));
+    // }
 
     public function listCity(): Traversable
     {

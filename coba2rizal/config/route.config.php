@@ -68,13 +68,13 @@ return [
                     ]
                 ],
                 [
-                    "route" => "/list",
+                    "route" => "/list{id:[0-9]+}",
                     "options" => [
                         "action" => SlotAction::class
                     ]
                 ],
                 [
-                    "route" => "/liststatus",
+                    "route" => "/list",
                     "options" => [
                         "action" => SlotAction::class
                     ]

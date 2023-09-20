@@ -36,12 +36,28 @@ class SlotAction extends InvokableAction
                     ],
                     "slot" => new SlotModel()
                 ]);
+            } else if ($this->getQuery("statusavalaible", false)) {
+                $slots_status = $this->slotProvider->listStatus('Avalaible');
+                return $this->render("slot/list", [
+                    "layout" => [
+                        "content_title" => "slot status List"
+                    ],
+                    "slots_status" => $slots_status
+                ]);
+            } else if ($this->getQuery("statusfull", false)) {
+                $slots_status = $this->slotProvider->listStatus('Full');
+                return $this->render("slot/list", [
+                    "layout" => [
+                        "content_title" => "slot status List"
+                    ],
+                    "slots_status" => $slots_status
+                ]);
             }
 
             // $data = (string)$this->request->getParsedBody();
             // $slots_status = $this->slotProvider->listStatus($data);
-            $slots_status = $this->slotProvider->listStatus();
-            return $this->render("slot/liststatus", [
+            $slots_status = $this->slotProvider->listCity();
+            return $this->render("slot/list", [
                 "layout" => [
                     "content_title" => "slot status List"
                 ],

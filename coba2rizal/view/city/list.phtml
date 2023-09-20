@@ -4,6 +4,7 @@
     <thead>
         <tr>
             <th>City Name</th>
+            <th>Building Name</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -11,6 +12,7 @@
         <?php foreach ($cities as $city) : ?>
             <tr>
                 <?= sprintf("<td>%s</td>", $city->city_name); ?>
+                <?= sprintf("<td>%s</td>", $city->building->building_name); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/city/%d", $city->id))); ?>

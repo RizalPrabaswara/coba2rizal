@@ -362,6 +362,62 @@ return [
                 END"
             );
             return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("city_BUPD");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("UPDATE");
+            $trigger->setEventObjectTable("City");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("building_BUPD");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("UPDATE");
+            $trigger->setEventObjectTable("Building");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("shelf_BUPD");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("UPDATE");
+            $trigger->setEventObjectTable("Shelf");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("slot_BUPD");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("UPDATE");
+            $trigger->setEventObjectTable("Slot");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
         }
     ]
 ];

@@ -17,4 +17,9 @@ class BuildingModel extends AbstractModel
     protected $id;
     protected $id_city;
     protected $building_name;
+
+    public function city()
+    {
+        return $this->BelongsTo(CityModel::class, 'id_city', 'id');
+    }
 }
