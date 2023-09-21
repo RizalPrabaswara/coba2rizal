@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace coba2rizal\Model;
 
 use Itseasy\Model\AbstractModel;
+use Laminas\Db\TableGateway\TableGateway;
+use Laminas\Paginator\Adapter\DbSelect;
 
 /**
  * @property int $id
@@ -18,38 +20,63 @@ class BuildingModel extends AbstractModel
     protected $id_city;
     protected $building_name;
 
-    public ?CityModel $cityClass = null;
+    private $db;
 
-    public function __construct(int $id = 0, string $building_name = '', int $id_city = 0)
+    // public ?CityModel $cityClass = null;
+
+    // public function __construct(int $id_city = 0)
+    // {
+    //     $this->cityClass = new CityModel($id_city, '');
+    // }
+
+    public function getBuildingName()
     {
-        // $this->id = $id;
-        // $this->building_name = $building_name;
-        $this->cityClass = new CityModel($id_city, '');
+        return $this->building_name;
     }
 
-    public function getArrayCopy(): array
-    {
-    }
+    // public function getCityName()
+    // {
+    //     $this->cityClass = new CityModel();
+    //     return $this->cityClass->city_name;
+    //     // $sql    = new Sql($this->db);
+    //     // $select = $sql->select('City');
+    //     // $stmt   = $sql->prepareStatementForSqlObject($select);
+    //     // $result = $stmt->execute();
+    //     // return $result;
+    // }
 
     // public function exchangeArray(array $data): array
     // {
-    //     $this->id = ((int) $data['id'] ?? 0);
-    //     $this->building_name = ($data['building_name'] ?? '');
     //     $this->cityClass = new CityModel();
-    //     $this->cityClass->id = ((int) $data['id'] ?? 0);
-    //     $this->cityClass->city_name = ($data['city_name'] ?? '');
+    //     $this->cityClass->db->$this->cityClass->code = ($data['id'] ?? '');
     // }
 
     public function toArray()
     {
         $attributes = get_object_vars($this);
-        $attributes['id_city'] = $attributes['cityClass']->id;
         unset($attributes['cityClass']);
+        $attributes['city_id'] = $this->cityClass->code;
         return $attributes;
     }
 
-    // public function city()
+    // public function getAll(): iterable
     // {
-    //     return $this->BelongsTo(CityModel::class, 'id_city', 'id');
+    //     $select = new Select($this->tableGateway->getTable());
+    //     $select->join('City', 'City.id = Building.id_city', [
+    //         'city_name' => 'name'
+    //     ]);
+    //     $rowSet = $this->tableGateway->selectWith($select);
+    //     return $rowSet;
+    // }
+
+    // public function cityClass()
+    // {
+    //     $select = new Select($this->tableGateway->getTable());
+    //     $select->join('City', 'City.id = Building.id_city', [
+    //         'city_name' => 'name'
+    //     ]);
+    //     $rowSet = $this->tableGateway->selectWith($select);
+    //     return $rowSet;
+    //     //return $this->BelongsTo(CityModel::class, 'id_city', 'id');
     // }
 }

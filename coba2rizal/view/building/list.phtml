@@ -12,9 +12,9 @@
     <tbody>
         <?php foreach ($buildings as $building) : ?>
             <tr>
-                <?= sprintf("<td>%s</td>", $building->building_name); ?>
+                <?= sprintf("<td>%s</td>", $building->getBuildingName()); ?>
                 <?= sprintf("<td>%s</td>", $building->id_city); ?>
-                <?= sprintf("<td>%s</td>", $building->cityClass->city_name); ?>
+                <?= sprintf("<td>%s</td>", $building->city_name); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/building/%d", $building->id))); ?>

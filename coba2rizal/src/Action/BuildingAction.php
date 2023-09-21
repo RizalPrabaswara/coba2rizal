@@ -30,9 +30,9 @@ class BuildingAction extends InvokableAction
             if ($this->getQuery("create", false)) {
                 return $this->render("building/form", [
                     "layout" => [
-                        "content_title" => "Add New Bulding"
+                        "content_title" => "Add New Building"
                     ],
-                    "bulding" => new BuildingModel()
+                    "building" => new BuildingModel()
                 ]);
             }
 
