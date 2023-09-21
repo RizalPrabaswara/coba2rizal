@@ -15,8 +15,5 @@ class BuildingRepositoryFactory
     {
         $db = $container->get(Database::class);
         return new BuildingRepository($db, "Building");
-
-        $db = $container->get(Database::class);
-        return new CityRepository($db, "City");
     }
 }

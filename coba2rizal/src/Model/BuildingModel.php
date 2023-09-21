@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace coba2rizal\Model;
 
 use Itseasy\Model\AbstractModel;
-use Laminas\Db\TableGateway\TableGateway;
-use Laminas\Paginator\Adapter\DbSelect;
 
 /**
  * @property int $id
  * @property int $id_city
  * @property string $building_name
+ * @property string $cities
  */
 
 class BuildingModel extends AbstractModel
@@ -20,7 +19,25 @@ class BuildingModel extends AbstractModel
     protected $id_city;
     protected $building_name;
 
-    private $db;
+    protected $cities;
+
+    /**
+     * @param City[] $categories
+     * @return self
+     */
+    public function setCities(array $cities)
+    {
+        $this->cities = $cities;
+        return $this;
+    }
+
+    /**
+     * @return City[]
+     */
+    public function getCities()
+    {
+        return $this->cities;
+    }
 
     // public ?CityModel $cityClass = null;
 
@@ -34,16 +51,42 @@ class BuildingModel extends AbstractModel
         return $this->building_name;
     }
 
-    // public function getCityName()
+    // public function getSharedUploadsForUserId($city_id)
     // {
-    //     $this->cityClass = new CityModel();
-    //     return $this->cityClass->city_name;
-    //     // $sql    = new Sql($this->db);
-    //     // $select = $sql->select('City');
-    //     // $stmt   = $sql->prepareStatementForSqlObject($select);
-    //     // $result = $stmt->execute();
-    //     // return $result;
+    //     $city_id = (int) $city_id;
+    //     $rowset = $this->tableGateway->select(function (\Laminas\Db\Sql\Select $select) use ($city_id) {
+    //         $select->where(array('city_id' => $city_id));
+    //         $select->join('City', 'City.id = Building.id_city');
+    //     });
+    //     Debug::dump($rowset);
+    //     return $rowset;
     // }
+
+    /** @var Laminas\Db\Adapter\Driver\StatementInterface $statement */
+    public function getCityName()
+    {
+        $statement = $this->adapter->query('SELECT `city_name` FROM `city` JOIN `Building` ON `city.id = Building.id_city`');
+        $result    = $statement->execute();
+        return $result;
+        // $select = new \Laminas\Db\Sql\Select;
+        // $select->from('Building');
+        // $select->join('City', 'City.id = Building.id_city');
+
+        // $resultSet = $this->tableGateway->selectWith($select);
+
+        // return $resultSet;
+        //     $this->cityClass = new CityModel();
+        //     return $this->cityClass->city_name;
+        // $sql    = new Sql($this->db);
+        // $select = $sql->select->from(['b' => 'Building'])
+        //     ->join(
+        //         ['c' => 'City'],        // join table with alias
+        //         'b.city_id = c.id'  // join expression
+        //     );
+        // $stmt   = $sql->prepareStatementForSqlObject($select);
+        // $result = $stmt->execute();
+        // return $result;
+    }
 
     // public function exchangeArray(array $data): array
     // {
@@ -57,6 +100,12 @@ class BuildingModel extends AbstractModel
         unset($attributes['cityClass']);
         $attributes['city_id'] = $this->cityClass->code;
         return $attributes;
+    }
+
+    function getNameById($cityId)
+    {
+        $this->cityClass = new CityModel();
+        return $this->cityClass->city_name;
     }
 
     // public function getAll(): iterable

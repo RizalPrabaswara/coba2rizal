@@ -29,8 +29,8 @@ class CityModel extends AbstractModel
     //     return $this->city_name;
     // }
 
-    public function building()
-    {
-        return $this->HasMany(BuildingModel::class, 'id_city');
-    }
+    // public function building()
+    // {
+    //     return $this->HasMany(BuildingModel::class, 'id_city');
+    // }
 }

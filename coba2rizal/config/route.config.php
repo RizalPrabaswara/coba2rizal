@@ -70,8 +70,12 @@ return [
                 [
                     "route" => "/list{id:[0-9]+}",
                     "options" => [
-                        "action" => SlotAction::class
-                    ]
+                        "action" => SlotAction::class,
+                        // "arguments" => [
+                        //     "STATUS" => "STATUSFULL",
+                        //     "STATUS" => "STATUSAVALAIBLE",
+                        // ],
+                    ],
                 ],
                 [
                     "route" => "/list",

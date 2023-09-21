@@ -81,6 +81,46 @@ class SlotAction extends InvokableAction
             // ]);
         }
 
+        // $slot_id = $this->getArgument("id", null);
+        // $action =  $this->getArgument("status", null);
+
+        // if (is_null($slot_id)) {
+        //     if ($this->getQuery("create", false)) {
+        //         return $this->render("slot/form", [
+        //             "layout" => [
+        //                 "content_title" => "Add New Slot"
+        //             ],
+        //             "slot" => new SlotModel()
+        //         ]);
+        //     }
+
+        //     $slots_status = $this->slotProvider->listCity();
+        //     return $this->render("slot/list", [
+        //         "layout" => [
+        //             "content_title" => "slot status List"
+        //         ],
+        //         "slots_status" => $slots_status
+        //     ]);
+        // } else if (is_null($action)) {
+        //     if ($this->getQuery("STATUSAVALAIBLE", false)) {
+        //         $slots_status = $this->slotProvider->listStatus('Avalaible');
+        //         return $this->render("slot/list", [
+        //             "layout" => [
+        //                 "content_title" => "slot status List"
+        //             ],
+        //             "slots_status" => $slots_status
+        //         ]);
+        //     } else if ($this->getQuery("STATUSFULL", false)) {
+        //         $slots_status = $this->slotProvider->listStatus('Full');
+        //         return $this->render("slot/list", [
+        //             "layout" => [
+        //                 "content_title" => "slot status List"
+        //             ],
+        //             "slots_status" => $slots_status
+        //         ]);
+        //     }
+        // }
+
         $slot = $this->slotProvider->getUserById(intval($slot_id));
 
         if (!$slot->id) {

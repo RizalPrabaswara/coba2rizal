@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace coba2rizal\Provider;
 
 use coba2rizal\Model\BuildingModel;
+use coba2rizal\Model\CityModel;
 use coba2rizal\Repository\BuildingRepository;
+use coba2rizal\Repository\CityRepository;
 use Itseasy\Model\CollectionModel;
 use Traversable;
 
