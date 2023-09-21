@@ -21,6 +21,10 @@ return [
                 "label" => "Slot",
                 "uri" => "/slot"
             ],
+            [
+                "label" => "Building",
+                "uri" => "/building"
+            ],
         ]
     ]
 ];

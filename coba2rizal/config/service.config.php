@@ -19,6 +19,10 @@ return [
             Provider\SlotProvider::class => Provider\Factory\SlotProviderFactory::class,
             Repository\SlotRepository::class => Repository\Factory\SlotRepositoryFactory::class,
             Service\SlotService::class => Service\Factory\SlotServiceFactory::class,
+
+            Provider\BuildingProvider::class => Provider\Factory\BuildingProviderFactory::class,
+            Repository\BuildingRepository::class => Repository\Factory\BuildingRepositoryFactory::class,
+            Service\BuildingService::class => Service\Factory\BuildingServiceFactory::class,
         ]
     ],
 ];

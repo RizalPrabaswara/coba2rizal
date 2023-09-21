@@ -81,5 +81,26 @@ return [
                 ]
             ]
         ],
+        [
+            "route" => "/building",
+            "options" => [
+                "redirect" => "/building/list",
+            ],
+            "child_routes" => [
+                [
+                    "route" => "/{id:[0-9]+}",
+                    "method" => ["GET", "POST"],
+                    "options" => [
+                        "action" => BuildingAction::class
+                    ]
+                ],
+                [
+                    "route" => "/list",
+                    "options" => [
+                        "action" => BuildingAction::class
+                    ]
+                ]
+            ]
+        ],
     ],
 ];

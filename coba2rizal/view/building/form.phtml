@@ -1,0 +1,19 @@
+<a href="<?= $this->url("/building/list") ?>">Back To List</a>
+
+<form method="post" action="<?= $this->url(sprintf("/building/%d", $building->id)) ?>">
+    <?= $this->csrf() ?>
+    <div>
+        <label>ID</label>
+        <input type="text" readonly="readonly" placeholder="Auto Generated" name="id" value="<?= $building->id ?>" />
+    </div>
+    <div>
+        <label>ID City</label>
+        <input type="text" name="id_shelf" value="<?= $building->id_city ?>" />
+    </div>
+    <div>
+        <label>Building Name</label>
+        <input type="text" name="building_name" value="<?= $building->building_name ?>" />
+    </div>
+    <div>
+        <input type="submit" value="Submit" />
+</form>

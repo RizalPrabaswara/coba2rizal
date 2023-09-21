@@ -372,7 +372,7 @@ return [
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
-                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                SET NEW.city_modification_date = UTC_TIMESTAMP(); 
                 END"
             );
             return $trigger;
@@ -386,7 +386,7 @@ return [
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
-                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                SET NEW.building_modification_date = UTC_TIMESTAMP(); 
                 END"
             );
             return $trigger;
@@ -400,7 +400,7 @@ return [
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
-                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                SET NEW.shelf_modification_date = UTC_TIMESTAMP(); 
                 END"
             );
             return $trigger;
@@ -414,7 +414,7 @@ return [
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
-                SET NEW.tech_modification_date = UTC_TIMESTAMP(); 
+                SET NEW.slot_modification_date = UTC_TIMESTAMP(); 
                 END"
             );
             return $trigger;

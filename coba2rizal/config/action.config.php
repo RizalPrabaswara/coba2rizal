@@ -13,6 +13,7 @@ return [
             UserAction::class => Factory\UserActionFactory::class,
             CityAction::class => Factory\CityActionFactory::class,
             SlotAction::class => Factory\SlotActionFactory::class,
+            BuildingAction::class => Factory\BuildingActionFactory::class,
         ],
     ]
 ];
