@@ -1,3 +1,17 @@
+class BuildingCollection extends BuildingModel {
+public function __construct()
+{
+Parent::__construct(BuildingModel::class);
+}
+
+public function getBuildingByCity(string $name='')
+{
+return array_map($this->buildings as $building){
+$building->city_name = $name;
+}
+}
+}
+
 <?php
 
 declare(strict_types=1);
@@ -5,54 +19,62 @@ declare(strict_types=1);
 namespace coba2rizal\Model;
 
 use Itseasy\Model\AbstractModel;
+use Itseasy\Model\RecordModel;
+use coba2rizal\Model\BuildingModel;
+use Itseasy\Model\CollectionModel;
 
 /**
  * @property int $id
  * @property string $city_name
+ * @property string $country
+ * @property collection $buildings
  */
 
-class CityModel extends AbstractModel
+class CityModel extends RecordModel
 {
     protected $id;
     protected $city_name;
+    protected $country;
 
-    //protected $name = 'Building';
+    protected $buildings;
 
-    // public function __construct($id, $city_name)
+    public function __construct()
+    {
+        $this->buildings = new CollectionModel(BuildingModel::class);
+    }
+
+    public function addBuilding($building)
+    {
+        $this->buildings->append($building);
+    }
+
+    // public function setId(int $id): void
     // {
     //     $this->id = $id;
-    //     $this->city_name = $city_name;
-    //     //$this->load->model(BuildingModel::class);
-    //     //$this->city_name = BuildingModel::class;
     // }
 
-    public function setIdCity($id)
-    {
-        $this->id = $id;
-    }
+    // public function getId(): int
+    // {
+    //     return $this->id;
+    // }
 
-    public function getIdCity()
-    {
-        return $this->id;
-    }
+    // public function setCityName(string $city_name): void
+    // {
+    //     $this->city_name = "Kota " . $city_name;
+    // }
 
-    public function setCityName($city_name)
-    {
-        $this->city_name = $city_name;
-    }
-
-    public function getName()
-    {
-        return $this->city_name;
-    }
-
-    // public function getCityNameID()
+    // public function getCityName(): string
     // {
     //     return $this->city_name;
     // }
 
-    // public function building()
+    // public function setCountry(string $country): void
     // {
-    //     return $this->HasMany(BuildingModel::class, 'id_city');
+    //     $this->country = "Negara " . $country;
+    // }
+
+    // public function getCountry(): string
+    // {
+    //     return $this->country;
     // }
 }
