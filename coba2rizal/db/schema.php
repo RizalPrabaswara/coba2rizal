@@ -87,6 +87,13 @@ return [
                     return $column;
                 },
                 function () use ($table) {
+                    $column = new ColumnObject("country", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
                     $column = new ColumnObject("city_creation_date", $table->getName());
                     $column->setDataType("datetime");
                     $column->setIsNullable(true);
@@ -138,6 +145,48 @@ return [
                     return $column;
                 },
                 function () use ($table) {
+                    $column = new ColumnObject("location", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("postal_code", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("address", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("size", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("height", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("floor", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
                     $column = new ColumnObject("building_creation_date", $table->getName());
                     $column->setDataType("datetime");
                     $column->setIsNullable(true);
@@ -145,6 +194,136 @@ return [
                 },
                 function () use ($table) {
                     $column = new ColumnObject("building_modification_date", $table->getName());
+                    $column->setDataType("datetime");
+                    $column->setIsNullable(true);
+                    return $column;
+                }
+            ]);
+            $table->setConstraints([
+                function ()  use ($table) {
+                    $constraint = new ConstraintObject("PRIMARY", $table->getName());
+                    $constraint->setType("PRIMARY KEY");
+                    $constraint->setColumns(["id"]);
+                    return $constraint;
+                }
+            ]);
+            return $table;
+        },
+        function () {
+            $table = new MysqlTableObject("Floor");
+            $table->setEngine("InnoDB");
+            $table->setCharset("utf8mb4");
+            $table->setCollation("utf8mb4_unicode_ci");
+            $table->setColumns([
+                function () use ($table) {
+                    $column = new ColumnObject("id", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setErrata("auto_increment", true);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("id_building", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("floor_name", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("number_of_rooms", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("floor_status", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("floor_creation_date", $table->getName());
+                    $column->setDataType("datetime");
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("floor_modification_date", $table->getName());
+                    $column->setDataType("datetime");
+                    $column->setIsNullable(true);
+                    return $column;
+                }
+            ]);
+            $table->setConstraints([
+                function ()  use ($table) {
+                    $constraint = new ConstraintObject("PRIMARY", $table->getName());
+                    $constraint->setType("PRIMARY KEY");
+                    $constraint->setColumns(["id"]);
+                    return $constraint;
+                }
+            ]);
+            return $table;
+        },
+        function () {
+            $table = new MysqlTableObject("Room");
+            $table->setEngine("InnoDB");
+            $table->setCharset("utf8mb4");
+            $table->setCollation("utf8mb4_unicode_ci");
+            $table->setColumns([
+                function () use ($table) {
+                    $column = new ColumnObject("id", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setErrata("auto_increment", true);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("id_room", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("room_name", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("temperature", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("room_status", $table->getName());
+                    $column->setDataType("varchar");
+                    $column->setCharacterMaximumLength(255);
+                    $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("room_creation_date", $table->getName());
+                    $column->setDataType("datetime");
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("room_modification_date", $table->getName());
                     $column->setDataType("datetime");
                     $column->setIsNullable(true);
                     return $column;
@@ -175,7 +354,7 @@ return [
                     return $column;
                 },
                 function () use ($table) {
-                    $column = new ColumnObject("id_building", $table->getName());
+                    $column = new ColumnObject("id_room", $table->getName());
                     $column->setDataType("int");
                     $column->setNumericUnsigned(true);
                     $column->setIsNullable(true);
@@ -186,6 +365,13 @@ return [
                     $column->setDataType("varchar");
                     $column->setCharacterMaximumLength(255);
                     $column->setIsNullable(false);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("shelf_unit", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
                     return $column;
                 },
                 function () use ($table) {
@@ -234,6 +420,13 @@ return [
                 },
                 function () use ($table) {
                     $column = new ColumnObject("id_shelf", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("id_unit", $table->getName());
                     $column->setDataType("int");
                     $column->setNumericUnsigned(true);
                     $column->setIsNullable(true);
@@ -323,6 +516,34 @@ return [
         },
         function () {
             $trigger = new TriggerObject();
+            $trigger->setName("floor_BINS");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("INSERT");
+            $trigger->setEventObjectTable("Floor");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.floor_creation_date = UTC_TIMESTAMP(), NEW.floor_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("room_BINS");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("INSERT");
+            $trigger->setEventObjectTable("Room");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.room_creation_date = UTC_TIMESTAMP(), NEW.room_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
             $trigger->setName("shelf_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
@@ -387,6 +608,34 @@ return [
             $trigger->setActionStatement(
                 "BEGIN
                 SET NEW.building_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("floor_BUPD");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("UPDATE");
+            $trigger->setEventObjectTable("Floor");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.floor_modification_date = UTC_TIMESTAMP(); 
+                END"
+            );
+            return $trigger;
+        },
+        function () {
+            $trigger = new TriggerObject();
+            $trigger->setName("room_BUPD");
+            $trigger->setActionTiming("BEFORE");
+            $trigger->setEventManipulation("UPDATE");
+            $trigger->setEventObjectTable("Room");
+            $trigger->setActionOrientation("ROW");
+            $trigger->setActionStatement(
+                "BEGIN
+                SET NEW.room_modification_date = UTC_TIMESTAMP(); 
                 END"
             );
             return $trigger;

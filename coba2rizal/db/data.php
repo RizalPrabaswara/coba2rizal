@@ -18,14 +18,14 @@ return [
     },
     function () {
         $insert = new Insert("City");
-        $insert->columns(["city_name"]);
-        $insert->values(["Surabaya"]);
+        $insert->columns(["city_name", "country"]);
+        $insert->values(["Surabaya", "Indonesia"]);
         return $insert;
     },
     function () {
         $insert = new Insert("City");
-        $insert->columns(["city_name"]);
-        $insert->values(["Jakarta"]);
+        $insert->columns(["city_name", "country"]);
+        $insert->values(["Jakarta", "Indonesia"]);
         return $insert;
     },
     function () {

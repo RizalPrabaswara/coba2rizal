@@ -3,14 +3,18 @@
 <table>
     <thead>
         <tr>
+            <th>ID City</th>
             <th>City Name</th>
+            <th>Country</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($cities as $city) : ?>
             <tr>
+                <?= sprintf("<td>%s</td>", $city->id); ?>
                 <?= sprintf("<td>%s</td>", $city->city_name); ?>
+                <?= sprintf("<td>%s</td>", $city->country); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/city/%d", $city->id))); ?>

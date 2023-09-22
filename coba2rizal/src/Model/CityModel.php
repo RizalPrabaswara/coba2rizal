@@ -1,17 +1,3 @@
-class BuildingCollection extends BuildingModel {
-public function __construct()
-{
-Parent::__construct(BuildingModel::class);
-}
-
-public function getBuildingByCity(string $name='')
-{
-return array_map($this->buildings as $building){
-$building->city_name = $name;
-}
-}
-}
-
 <?php
 
 declare(strict_types=1);
@@ -48,6 +34,20 @@ class CityModel extends RecordModel
         $this->buildings->append($building);
     }
 
+    // class BuildingCollection extends BuildingModel {
+    //     public function __construct()
+    //     {
+    //     Parent::__construct(BuildingModel::class);
+    //     }
+
+    //     public function getBuildingByCity(string $name='')
+    //     {
+    //     return array_map($this->buildings as $building){
+    //     $building->city_name = $name;
+    //     }
+    //     }
+    //     }
+
     // public function setId(int $id): void
     // {
     //     $this->id = $id;
@@ -77,4 +77,5 @@ class CityModel extends RecordModel
     // {
     //     return $this->country;
     // }
+
 }
