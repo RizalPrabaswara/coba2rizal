@@ -47,7 +47,7 @@ class BuildingModel extends AbstractModel
 
     public function getCity()
     {
-        return $this->populate($city);
+        //return $this->populate($city);
     }
 
     // /**

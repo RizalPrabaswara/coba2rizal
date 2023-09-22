@@ -68,7 +68,7 @@ return [
                     ]
                 ],
                 [
-                    "route" => "/list{id:[0-9]+}",
+                    "route" => "/list{segment:[a-z]+}",
                     "options" => [
                         "action" => SlotAction::class,
                         // "arguments" => [
