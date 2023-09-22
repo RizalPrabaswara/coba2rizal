@@ -10,6 +10,7 @@
         </tr>
     </thead>
     <tbody>
+        <?= sprintf("<td>%s</td>", $buildings); ?>
         <?php foreach ($buildings as $building) : ?>
             <tr>
                 <?= sprintf("<td>%s</td>", $building->getBuildingName()); ?>

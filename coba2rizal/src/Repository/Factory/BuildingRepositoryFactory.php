@@ -7,7 +7,6 @@ namespace coba2rizal\Repository\Factory;
 use Psr\Container\ContainerInterface;
 use coba2rizal\Database;
 use coba2rizal\Repository\BuildingRepository;
-use coba2rizal\Repository\CityRepository;
 
 class BuildingRepositoryFactory
 {

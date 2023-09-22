@@ -6,6 +6,7 @@ namespace coba2rizal\Service;
 
 use coba2rizal\Model\BuildingModel;
 use coba2rizal\Repository\BuildingRepository;
+use Itseasy\Sql;
 
 class BuildingService
 {
@@ -16,14 +17,19 @@ class BuildingService
         $this->buildingRepository = $buildingRepository;
     }
 
-    public function convert(BuildingModel $building)
-    {
-        $building_arr = array();
-        $building_arr['id'] = $building->id;
-        $building_arr['building_name'] = $building->building_name;
-        $building_arr['city'] = $building->city->getCity();
-        return json_encode($building_arr,);
-    }
+    // public function convert(BuildingModel $building)
+    // {
+    //     $building_arr = array();
+    //     $building_arr['id'] = $building->id;
+    //     $building_arr['building_name'] = $building->building_name;
+    //     $building_arr['city'] = $building->city->getCity();
+    //     return json_encode($building_arr,);
+    // }
+
+    // public function join(BuildingModel $building)
+    // {
+    //     return 
+    // }
 
     public function save(BuildingModel $building)
     {
