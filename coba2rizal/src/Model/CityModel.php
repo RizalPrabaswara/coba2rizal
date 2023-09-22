@@ -41,7 +41,7 @@ class CityModel extends AbstractModel
         $this->city_name = $city_name;
     }
 
-    public function getCityName()
+    public function getName()
     {
         return $this->city_name;
     }

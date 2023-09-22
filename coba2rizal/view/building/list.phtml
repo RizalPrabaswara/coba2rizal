@@ -10,12 +10,12 @@
         </tr>
     </thead>
     <tbody>
-        <?= sprintf("<td>%s</td>", $buildings); ?>
+        <!-- sprintf("<td>%s</td>", $buildings); ?> -->
         <?php foreach ($buildings as $building) : ?>
             <tr>
                 <?= sprintf("<td>%s</td>", $building->getBuildingName()); ?>
                 <?= sprintf("<td>%s</td>", $building->id_city); ?>
-                <?= sprintf("<td>%s</td>", $building->getCity()); ?>
+                <?= sprintf("<td>%s</td>", $building->getCityName1()); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/building/%d", $building->id))); ?>

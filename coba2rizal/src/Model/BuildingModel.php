@@ -13,11 +13,12 @@ use Itseasy\Model\AbstractModel;
  * @property string $cities
  */
 
+//class BuildingModel extends CityModel
 class BuildingModel extends AbstractModel
 {
     protected $id;
     protected $id_city;
-    protected $city;
+    //protected $city;
     protected $building_name;
 
     //protected $cities;
@@ -29,9 +30,19 @@ class BuildingModel extends AbstractModel
     //     $this->city = $city;
     // }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setBuildingName($building_name)
+    {
+        $this->building_name = $building_name;
     }
 
     public function getBuildingName()
@@ -39,16 +50,22 @@ class BuildingModel extends AbstractModel
         return $this->building_name;
     }
 
-    public function setCity(CityModel $city)
+    public function getCityName1()
     {
-        $this->city = $city;
-        //return $this->city = $city_name;
+        $cityModel = new CityModel();
+        $this->$cityModel->getName();
     }
 
-    public function getCity()
-    {
-        //return $this->populate($city);
-    }
+    // public function setCity(CityModel $city)
+    // {
+    //     $this->city = $city;
+    //     //return $this->city = $city_name;
+    // }
+
+    // public function getCity()
+    // {
+    //     //return $this->populate($city);
+    // }
 
     // /**
     //  * @param City[] $categories

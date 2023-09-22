@@ -36,7 +36,7 @@ class BuildingAction extends InvokableAction
                 ]);
             }
 
-            $buildings = $this->buildingProvider->join();
+            $buildings = $this->buildingProvider->listCity();
             return $this->render("building/list", [
                 "layout" => [
                     "content_title" => "Building List"
