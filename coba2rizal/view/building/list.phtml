@@ -14,7 +14,7 @@
             <tr>
                 <?= sprintf("<td>%s</td>", $building->getBuildingName()); ?>
                 <?= sprintf("<td>%s</td>", $building->id_city); ?>
-                <?= sprintf("<td>%s</td>", $building->getCities()); ?>
+                <?= sprintf("<td>%s</td>", $building->getCity()); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/building/%d", $building->id))); ?>

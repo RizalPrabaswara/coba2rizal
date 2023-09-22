@@ -18,10 +18,32 @@ class CityModel extends AbstractModel
 
     //protected $name = 'Building';
 
-    public function __construct()
+    // public function __construct($id, $city_name)
+    // {
+    //     $this->id = $id;
+    //     $this->city_name = $city_name;
+    //     //$this->load->model(BuildingModel::class);
+    //     //$this->city_name = BuildingModel::class;
+    // }
+
+    public function setIdCity($id)
     {
-        //$this->load->model(BuildingModel::class);
-        //$this->city_name = BuildingModel::class;
+        $this->id = $id;
+    }
+
+    public function getIdCity()
+    {
+        return $this->id;
+    }
+
+    public function setCityName($city_name)
+    {
+        $this->city_name = $city_name;
+    }
+
+    public function getCityName()
+    {
+        return $this->city_name;
     }
 
     // public function getCityNameID()

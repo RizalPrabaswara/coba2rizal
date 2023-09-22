@@ -17,27 +17,55 @@ class BuildingModel extends AbstractModel
 {
     protected $id;
     protected $id_city;
+    protected $city;
     protected $building_name;
 
-    protected $cities;
+    //protected $cities;
 
-    /**
-     * @param City[] $categories
-     * @return self
-     */
-    public function setCities(array $cities)
+    // public function __construct($id, CityModel $city, $building_name)
+    // {
+    //     $this->id = $id;
+    //     $this->building_name = $building_name;
+    //     $this->city = $city;
+    // }
+
+    public function getId()
     {
-        $this->cities = $cities;
-        return $this;
+        return $this->id;
     }
 
-    /**
-     * @return City[]
-     */
-    public function getCities()
+    public function getBuildingName()
     {
-        return $this->cities;
+        return $this->building_name;
     }
+
+    public function setCity(CityModel $city)
+    {
+        $this->city = $city;
+        //return $this->city = $city_name;
+    }
+
+    public function getCity()
+    {
+        return $this->city;
+    }
+    // /**
+    //  * @param City[] $categories
+    //  * @return self
+    //  */
+    // public function setCities(array $cities)
+    // {
+    //     $this->cities = $cities;
+    //     return $this;
+    // }
+
+    // /**
+    //  * @return City[]
+    //  */
+    // public function getCities()
+    // {
+    //     return $this->cities;
+    // }
 
     // public ?CityModel $cityClass = null;
 
@@ -46,10 +74,6 @@ class BuildingModel extends AbstractModel
     //     $this->cityClass = new CityModel($id_city, '');
     // }
 
-    public function getBuildingName()
-    {
-        return $this->building_name;
-    }
 
     // public function getSharedUploadsForUserId($city_id)
     // {
@@ -94,19 +118,19 @@ class BuildingModel extends AbstractModel
     //     $this->cityClass->db->$this->cityClass->code = ($data['id'] ?? '');
     // }
 
-    public function toArray()
-    {
-        $attributes = get_object_vars($this);
-        unset($attributes['cityClass']);
-        $attributes['city_id'] = $this->cityClass->code;
-        return $attributes;
-    }
+    // public function toArray()
+    // {
+    //     $attributes = get_object_vars($this);
+    //     unset($attributes['cityClass']);
+    //     $attributes['city_id'] = $this->cityClass->code;
+    //     return $attributes;
+    // }
 
-    function getNameById($cityId)
-    {
-        $this->cityClass = new CityModel();
-        return $this->cityClass->city_name;
-    }
+    // function getNameById($cityId)
+    // {
+    //     $this->cityClass = new CityModel();
+    //     return $this->cityClass->city_name;
+    // }
 
     // public function getAll(): iterable
     // {
