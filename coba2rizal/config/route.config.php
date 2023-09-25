@@ -106,5 +106,68 @@ return [
                 ]
             ]
         ],
+        [
+            "route" => "/floor",
+            "options" => [
+                "redirect" => "/floor/list",
+            ],
+            "child_routes" => [
+                [
+                    "route" => "/{id:[0-9]+}",
+                    "method" => ["GET", "POST"],
+                    "options" => [
+                        "action" => FloorAction::class
+                    ]
+                ],
+                [
+                    "route" => "/list",
+                    "options" => [
+                        "action" => FloorAction::class
+                    ]
+                ]
+            ]
+        ],
+        [
+            "route" => "/room",
+            "options" => [
+                "redirect" => "/room/list",
+            ],
+            "child_routes" => [
+                [
+                    "route" => "/{id:[0-9]+}",
+                    "method" => ["GET", "POST"],
+                    "options" => [
+                        "action" => RoomAction::class
+                    ]
+                ],
+                [
+                    "route" => "/list",
+                    "options" => [
+                        "action" => RoomAction::class
+                    ]
+                ]
+            ]
+        ],
+        [
+            "route" => "/shelf",
+            "options" => [
+                "redirect" => "/shelf/list",
+            ],
+            "child_routes" => [
+                [
+                    "route" => "/{id:[0-9]+}",
+                    "method" => ["GET", "POST"],
+                    "options" => [
+                        "action" => ShelfAction::class
+                    ]
+                ],
+                [
+                    "route" => "/list",
+                    "options" => [
+                        "action" => ShelfAction::class
+                    ]
+                ]
+            ]
+        ],
     ],
 ];

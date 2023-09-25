@@ -6,6 +6,12 @@
             <th>Building Name</th>
             <th>ID City</th>
             <th>Nama City</th>
+            <th>Location</th>
+            <th>Postal Code</th>
+            <th>Address</th>
+            <th>Size</th>
+            <th>Height</th>
+            <th>Floor Level</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -15,7 +21,13 @@
             <tr>
                 <?= sprintf("<td>%s</td>", $building->getBuildingName()); ?>
                 <?= sprintf("<td>%s</td>", $building->id_city); ?>
-                <?= sprintf("<td>%s</td>", $building->getCityName1()); ?>
+                <?= sprintf("<td>%s</td>", $building->getCityName()); ?>
+                <?= sprintf("<td>%s</td>", $building->getLocation()); ?>
+                <?= sprintf("<td>%s</td>", $building->getPostalCode()); ?>
+                <?= sprintf("<td>%s</td>", $building->getAddress()); ?>
+                <?= sprintf("<td>%s</td>", $building->getSize()); ?>
+                <?= sprintf("<td>%s</td>", $building->getHeight()); ?>
+                <?= sprintf("<td>%s</td>", $building->getFloorLevel()); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/building/%d", $building->id))); ?>

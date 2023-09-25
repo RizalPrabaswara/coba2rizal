@@ -52,7 +52,7 @@ class ShelfAction extends InvokableAction
         }
 
         if ($this->getQuery("delete", false)) {
-            if ($this->ShelfService->remove($shelf)) {
+            if ($this->shelfService->remove($shelf)) {
                 $this->view->flash()->set("success", "shelf Deleted");
             } else {
                 $this->view->flash()->set("error", "Cannot delete shelf");
@@ -75,7 +75,7 @@ class ShelfAction extends InvokableAction
         $shelf = new ShelfModel();
 
         $shelf->populate($data);
-        $shelf = $this->ShelfService->save($shelf);
+        $shelf = $this->shelfService->save($shelf);
 
         if (!$shelf->id) {
             $this->view->flash()->set("warning", "Unable to save shelf data");

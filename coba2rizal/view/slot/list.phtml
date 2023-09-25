@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th>ID Shelf</th>
+            <th>ID Unit</th>
             <th>Slot Name</th>
             <th>Status</th>
             <th>History</th>
@@ -19,6 +20,7 @@
         <?php foreach ($slots_status as $slot) : ?>
             <tr>
                 <?= sprintf("<td>%s</td>", $slot->id_shelf); ?>
+                <?= sprintf("<td>%s</td>", $slot->id_unit); ?>
                 <?= sprintf("<td>%s</td>", $slot->slot_name); ?>
                 <?= sprintf("<td>%s</td>", $slot->status); ?>
                 <?= sprintf("<td>%s</td>", date('D', strtotime($slot->slot_modification_date))); ?>

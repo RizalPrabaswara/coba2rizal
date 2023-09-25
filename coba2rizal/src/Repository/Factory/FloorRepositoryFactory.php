@@ -6,13 +6,13 @@ namespace coba2rizal\Repository\Factory;
 
 use Psr\Container\ContainerInterface;
 use coba2rizal\Database;
-use coba2rizal\Repository\CityRepository;
+use coba2rizal\Repository\FloorRepository;
 
-class CityRepositoryFactory
+class FloorRepositoryFactory
 {
     public function __invoke(ContainerInterface $container)
     {
         $db = $container->get(Database::class);
-        return new CityRepository($db, "city");
+        return new FloorRepository($db, "floor");
     }
 }

@@ -16,7 +16,7 @@ use Itseasy\Model\CollectionModel;
  * @property collection $buildings
  */
 
-class CityModel extends RecordModel
+class CityModel extends AbstractModel
 {
     protected $id;
     protected $city_name;
@@ -29,10 +29,15 @@ class CityModel extends RecordModel
         $this->buildings = new CollectionModel(BuildingModel::class);
     }
 
-    public function addBuilding($building)
+    public function getBuildingName()
     {
-        $this->buildings->append($building);
+        return $this->buildings;
     }
+
+    // public function addBuilding($building)
+    // {
+    //     $this->buildings->append($building);
+    // }
 
     // class BuildingCollection extends BuildingModel {
     //     public function __construct()
@@ -48,34 +53,33 @@ class CityModel extends RecordModel
     //     }
     //     }
 
-    // public function setId(int $id): void
-    // {
-    //     $this->id = $id;
-    // }
+    public function setId(?int $id)
+    {
+        $this->id = $id;
+    }
 
-    // public function getId(): int
-    // {
-    //     return $this->id;
-    // }
+    public function getId()
+    {
+        return $this->id;
+    }
 
-    // public function setCityName(string $city_name): void
-    // {
-    //     $this->city_name = "Kota " . $city_name;
-    // }
+    public function setCityName(?string $city_name)
+    {
+        $this->city_name = $city_name;
+    }
 
-    // public function getCityName(): string
-    // {
-    //     return $this->city_name;
-    // }
+    public function getCityName()
+    {
+        return $this->city_name;
+    }
 
-    // public function setCountry(string $country): void
-    // {
-    //     $this->country = "Negara " . $country;
-    // }
+    public function setCountry(?string $country)
+    {
+        $this->country = $country;
+    }
 
-    // public function getCountry(): string
-    // {
-    //     return $this->country;
-    // }
-
+    public function getCountry()
+    {
+        return $this->country;
+    }
 }

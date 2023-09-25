@@ -13,6 +13,6 @@ class BuildingRepositoryFactory
     public function __invoke(ContainerInterface $container)
     {
         $db = $container->get(Database::class);
-        return new BuildingRepository($db, "Building");
+        return new BuildingRepository($db, "building");
     }
 }

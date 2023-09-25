@@ -1,0 +1,27 @@
+<a href="<?= $this->url("/floor/list") ?>">Back To List</a>
+
+<form method="post" action="<?= $this->url(sprintf("/floor/%d", $floor->id)) ?>">
+    <?= $this->csrf() ?>
+    <div>
+        <label>ID</label>
+        <input type="text" readonly="readonly" placeholder="Auto Generated" name="id" value="<?= $floor->id ?>" />
+    </div>
+    <div>
+        <label>ID Building</label>
+        <input type="text" name="id_building" value="<?= $floor->id_building ?>" />
+    </div>
+    <div>
+        <label>Floor Name</label>
+        <input type="text" name="floor_name" value="<?= $floor->floor_name ?>" />
+    </div>
+    <div>
+        <label>Number Of Rooms</label>
+        <input type="number" name="number_of_rooms" value="<?= $floor->number_of_rooms ?>" />
+    </div>
+    <div>
+        <label>Floor Status</label>
+        <input type="text" name="floor_status" value="<?= $floor->floor_status ?>" />
+    </div>
+    <div>
+        <input type="submit" value="Submit" />
+</form>

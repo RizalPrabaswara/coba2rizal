@@ -1,0 +1,30 @@
+<a href="<?= $this->url("/room/list", ["create" => 1]) ?>">Add New room</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID Building</th>
+            <th>ID Floor</th>
+            <th>Room Name</th>
+            <th>Room Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- sprintf("<td>%s</td>", $buildings); ?> -->
+        <?php foreach ($rooms as $room) : ?>
+            <tr>
+                <?= sprintf("<td>%s</td>", $room->id_building); ?>
+                <?= sprintf("<td>%s</td>", $room->id_floor); ?>
+                <?= sprintf("<td>%s</td>", $room->room_name); ?>
+                <?= sprintf("<td>%s</td>", $room->room_status); ?>
+                <td>
+                    <ul class="row-action">
+                        <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/room/%d", $room->id))); ?>
+                        <?= sprintf("<li><a href=\"%s\">Delete</a></li>", $this->url(sprintf("/room/%d", $room->id), ["delete" => 1])); ?>
+                    </ul>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

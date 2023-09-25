@@ -25,6 +25,18 @@ return [
                 "label" => "Building",
                 "uri" => "/building"
             ],
+            [
+                "label" => "Floor",
+                "uri" => "/floor"
+            ],
+            [
+                "label" => "Room",
+                "uri" => "/room"
+            ],
+            [
+                "label" => "Shelf",
+                "uri" => "/shelf"
+            ],
         ]
     ]
 ];

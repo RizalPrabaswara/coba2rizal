@@ -1,0 +1,27 @@
+<a href="<?= $this->url("/shelf/list") ?>">Back To List</a>
+
+<form method="post" action="<?= $this->url(sprintf("/shelf/%d", $shelf->id)) ?>">
+    <?= $this->csrf() ?>
+    <div>
+        <label>ID</label>
+        <input type="text" readonly="readonly" placeholder="Auto Generated" name="id" value="<?= $shelf->id ?>" />
+    </div>
+    <div>
+        <label>ID Room</label>
+        <input type="text" name="id_room" value="<?= $shelf->id_room ?>" />
+    </div>
+    <div>
+        <label>Shelf Name</label>
+        <input type="text" name="shelf_name" value="<?= $shelf->shelf_name ?>" />
+    </div>
+    <div>
+        <label>Shelf Unit</label>
+        <input type="number" name="shelf_unit" value="<?= $shelf->shelf_unit ?>" max="16" />
+    </div>
+    <div>
+        <label>Status</label>
+        <input type="text" name="status" value="<?= $shelf->status ?>" />
+    </div>
+    <div>
+        <input type="submit" value="Submit" />
+</form>

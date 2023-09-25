@@ -30,13 +30,13 @@ class BuildingAction extends InvokableAction
             if ($this->getQuery("create", false)) {
                 return $this->render("building/form", [
                     "layout" => [
-                        "content_title" => "Add New Building"
+                        "content_title" => "Add New Building In This Form"
                     ],
                     "building" => new BuildingModel()
                 ]);
             }
 
-            $buildings = $this->buildingProvider->listCity();
+            $buildings = $this->buildingProvider->listBuilding();
             return $this->render("building/list", [
                 "layout" => [
                     "content_title" => "Building List"
@@ -45,7 +45,7 @@ class BuildingAction extends InvokableAction
             ]);
         }
 
-        $building = $this->buildingProvider->getUserById(intval($building_id));
+        $building = $this->buildingProvider->getBuildingById(intval($building_id));
 
         if (!$building->id) {
             throw new HttpForbiddenException($this->request);

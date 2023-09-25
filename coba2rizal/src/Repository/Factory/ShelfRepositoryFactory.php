@@ -13,6 +13,6 @@ class ShelfRepositoryFactory
     public function __invoke(ContainerInterface $container)
     {
         $db = $container->get(Database::class);
-        return new ShelfRepository($db, "Shelf");
+        return new ShelfRepository($db, "shelf");
     }
 }

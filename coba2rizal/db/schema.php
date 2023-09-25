@@ -66,7 +66,7 @@ return [
             return $table;
         },
         function () {
-            $table = new MysqlTableObject("City");
+            $table = new MysqlTableObject("city");
             $table->setEngine("InnoDB");
             $table->setCharset("utf8mb4");
             $table->setCollation("utf8mb4_unicode_ci");
@@ -117,7 +117,7 @@ return [
             return $table;
         },
         function () {
-            $table = new MysqlTableObject("Building");
+            $table = new MysqlTableObject("building");
             $table->setEngine("InnoDB");
             $table->setCharset("utf8mb4");
             $table->setCollation("utf8mb4_unicode_ci");
@@ -180,7 +180,7 @@ return [
                     return $column;
                 },
                 function () use ($table) {
-                    $column = new ColumnObject("floor", $table->getName());
+                    $column = new ColumnObject("floor_level", $table->getName());
                     $column->setDataType("int");
                     $column->setNumericUnsigned(true);
                     $column->setIsNullable(true);
@@ -210,7 +210,7 @@ return [
             return $table;
         },
         function () {
-            $table = new MysqlTableObject("Floor");
+            $table = new MysqlTableObject("floor");
             $table->setEngine("InnoDB");
             $table->setCharset("utf8mb4");
             $table->setCollation("utf8mb4_unicode_ci");
@@ -275,7 +275,7 @@ return [
             return $table;
         },
         function () {
-            $table = new MysqlTableObject("Room");
+            $table = new MysqlTableObject("room");
             $table->setEngine("InnoDB");
             $table->setCharset("utf8mb4");
             $table->setCollation("utf8mb4_unicode_ci");
@@ -289,7 +289,14 @@ return [
                     return $column;
                 },
                 function () use ($table) {
-                    $column = new ColumnObject("id_room", $table->getName());
+                    $column = new ColumnObject("id_building", $table->getName());
+                    $column->setDataType("int");
+                    $column->setNumericUnsigned(true);
+                    $column->setIsNullable(true);
+                    return $column;
+                },
+                function () use ($table) {
+                    $column = new ColumnObject("id_floor", $table->getName());
                     $column->setDataType("int");
                     $column->setNumericUnsigned(true);
                     $column->setIsNullable(true);
@@ -300,13 +307,6 @@ return [
                     $column->setDataType("varchar");
                     $column->setCharacterMaximumLength(255);
                     $column->setIsNullable(false);
-                    return $column;
-                },
-                function () use ($table) {
-                    $column = new ColumnObject("temperature", $table->getName());
-                    $column->setDataType("int");
-                    $column->setNumericUnsigned(true);
-                    $column->setIsNullable(true);
                     return $column;
                 },
                 function () use ($table) {
@@ -340,7 +340,7 @@ return [
             return $table;
         },
         function () {
-            $table = new MysqlTableObject("Shelf");
+            $table = new MysqlTableObject("shelf");
             $table->setEngine("InnoDB");
             $table->setCharset("utf8mb4");
             $table->setCollation("utf8mb4_unicode_ci");
@@ -405,7 +405,7 @@ return [
             return $table;
         },
         function () {
-            $table = new MysqlTableObject("Slot");
+            $table = new MysqlTableObject("slot");
             $table->setEngine("InnoDB");
             $table->setCharset("utf8mb4");
             $table->setCollation("utf8mb4_unicode_ci");
@@ -491,7 +491,7 @@ return [
             $trigger->setName("city_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
-            $trigger->setEventObjectTable("City");
+            $trigger->setEventObjectTable("city");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -505,7 +505,7 @@ return [
             $trigger->setName("building_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
-            $trigger->setEventObjectTable("Building");
+            $trigger->setEventObjectTable("building");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -519,7 +519,7 @@ return [
             $trigger->setName("floor_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
-            $trigger->setEventObjectTable("Floor");
+            $trigger->setEventObjectTable("floor");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -533,7 +533,7 @@ return [
             $trigger->setName("room_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
-            $trigger->setEventObjectTable("Room");
+            $trigger->setEventObjectTable("room");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -547,7 +547,7 @@ return [
             $trigger->setName("shelf_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
-            $trigger->setEventObjectTable("Shelf");
+            $trigger->setEventObjectTable("shelf");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -561,7 +561,7 @@ return [
             $trigger->setName("slot_BINS");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("INSERT");
-            $trigger->setEventObjectTable("Slot");
+            $trigger->setEventObjectTable("slot");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -589,7 +589,7 @@ return [
             $trigger->setName("city_BUPD");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("UPDATE");
-            $trigger->setEventObjectTable("City");
+            $trigger->setEventObjectTable("city");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -603,7 +603,7 @@ return [
             $trigger->setName("building_BUPD");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("UPDATE");
-            $trigger->setEventObjectTable("Building");
+            $trigger->setEventObjectTable("building");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -617,7 +617,7 @@ return [
             $trigger->setName("floor_BUPD");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("UPDATE");
-            $trigger->setEventObjectTable("Floor");
+            $trigger->setEventObjectTable("floor");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -631,7 +631,7 @@ return [
             $trigger->setName("room_BUPD");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("UPDATE");
-            $trigger->setEventObjectTable("Room");
+            $trigger->setEventObjectTable("room");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -645,7 +645,7 @@ return [
             $trigger->setName("shelf_BUPD");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("UPDATE");
-            $trigger->setEventObjectTable("Shelf");
+            $trigger->setEventObjectTable("shelf");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN
@@ -659,7 +659,7 @@ return [
             $trigger->setName("slot_BUPD");
             $trigger->setActionTiming("BEFORE");
             $trigger->setEventManipulation("UPDATE");
-            $trigger->setEventObjectTable("Slot");
+            $trigger->setEventObjectTable("slot");
             $trigger->setActionOrientation("ROW");
             $trigger->setActionStatement(
                 "BEGIN

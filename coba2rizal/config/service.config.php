@@ -23,6 +23,18 @@ return [
             Provider\BuildingProvider::class => Provider\Factory\BuildingProviderFactory::class,
             Repository\BuildingRepository::class => Repository\Factory\BuildingRepositoryFactory::class,
             Service\BuildingService::class => Service\Factory\BuildingServiceFactory::class,
+
+            Provider\ShelfProvider::class => Provider\Factory\ShelfProviderFactory::class,
+            Repository\ShelfRepository::class => Repository\Factory\ShelfRepositoryFactory::class,
+            Service\ShelfService::class => Service\Factory\ShelfServiceFactory::class,
+
+            Provider\FloorProvider::class => Provider\Factory\FloorProviderFactory::class,
+            Repository\FloorRepository::class => Repository\Factory\FloorRepositoryFactory::class,
+            Service\FloorService::class => Service\Factory\FloorServiceFactory::class,
+
+            Provider\RoomProvider::class => Provider\Factory\RoomProviderFactory::class,
+            Repository\RoomRepository::class => Repository\Factory\RoomRepositoryFactory::class,
+            Service\RoomService::class => Service\Factory\RoomServiceFactory::class,
         ]
     ],
 ];

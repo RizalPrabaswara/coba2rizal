@@ -12,16 +12,54 @@ use Itseasy\Model\RecordModel;
  * @property int $id_building
  * @property int $id_floor
  * @property string $room_name
- * @property int $temperature
  * @property string $room_status
  */
 
-class RoomModel extends RecordModel
+class RoomModel extends AbstractModel
 {
     protected $id;
     protected $id_building;
     protected $id_floor;
     protected $room_name;
-    protected $temperature;
     protected $room_status;
+
+    public function setId(?int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setIdBuilding(?int $id_building)
+    {
+        $this->id_building = $id_building;
+    }
+
+    public function getIdBuilding()
+    {
+        return $this->id_building;
+    }
+
+    public function setIdFloor(?int $id_floor)
+    {
+        $this->id_floor = $id_floor;
+    }
+
+    public function getIdFloor()
+    {
+        return $this->id_floor;
+    }
+
+    public function setRoomName(?string $room_name)
+    {
+        $this->room_name = $room_name;
+    }
+
+    public function getRoomName()
+    {
+        return $this->room_name;
+    }
 }

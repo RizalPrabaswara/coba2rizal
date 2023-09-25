@@ -13,6 +13,6 @@ class SlotRepositoryFactory
     public function __invoke(ContainerInterface $container)
     {
         $db = $container->get(Database::class);
-        return new SlotRepository($db, "Slot");
+        return new SlotRepository($db, "slot");
     }
 }
