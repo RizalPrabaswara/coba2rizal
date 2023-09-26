@@ -4,11 +4,11 @@
     <?= $this->csrf() ?>
     <div>
         <label>ID</label>
-        <input type="text" readonly="readonly" placeholder="Auto Generated" name="id" value="<?= $building->id ?>" />
+        <input type="number" readonly="readonly" placeholder="Auto Generated" name="id" value="<?= $building->id ?>" />
     </div>
     <div>
         <label>ID City</label>
-        <input type="text" name="id_city" value="<?= $building->id_city ?>" />
+        <input type="number" name="id_city" value="<?= $building->id_city ?>" />
     </div>
     <div>
         <label>Building Name</label>

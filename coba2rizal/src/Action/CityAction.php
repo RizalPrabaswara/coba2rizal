@@ -44,7 +44,7 @@ class CityAction extends InvokableAction
             ]);
         }
 
-        $city = $this->cityProvider->getUserById(intval($city_id));
+        $city = $this->cityProvider->getCityById(intval($city_id));
 
         if (!$city->id) {
             throw new HttpForbiddenException($this->request);

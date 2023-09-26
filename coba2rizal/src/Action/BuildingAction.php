@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace coba2rizal\Action;
 
 use coba2rizal\Model\BuildingModel;
+use coba2rizal\Provider\BuildingDetailProvider;
 use coba2rizal\Provider\BuildingProvider;
 use coba2rizal\Service\BuildingService;
 use Itseasy\Action\InvokableAction;
@@ -16,10 +17,11 @@ class BuildingAction extends InvokableAction
     protected $buildingProvider;
     protected $buildingService;
 
-    public function __construct(BuildingProvider $buildingProvider, BuildingService $buildingService)
+    public function __construct(BuildingProvider $buildingProvider, BuildingService $buildingService, BuildingDetailProvider $buildingDetailProvider)
     {
         $this->buildingProvider = $buildingProvider;
         $this->buildingService = $buildingService;
+        $this->buildingDetailProvider = $buildingDetailProvider;
     }
 
     public function httpGet(): ResponseInterface
@@ -37,11 +39,18 @@ class BuildingAction extends InvokableAction
             }
 
             $buildings = $this->buildingProvider->listBuilding();
+            foreach ($buildings as $building) {
+                $idcity = $building->id_city;
+                $cities = $this->buildingDetailProvider->getCityById($idcity);
+            }
+            // $cities = $this->buildingDetailProvider->listCity($idcity);
+
             return $this->render("building/list", [
                 "layout" => [
                     "content_title" => "Building List"
                 ],
-                "buildings" => $buildings
+                "buildings" => $buildings,
+                "cities" => $cities
             ]);
         }
 

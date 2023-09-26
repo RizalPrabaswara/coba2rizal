@@ -35,9 +35,8 @@ class BuildingModel extends AbstractModel
     protected $height;
     protected $floor_level;
 
-    protected $city;
-
-    private $floors;
+    // private $city;
+    // private $floors;
 
     public function __construct()
     {
@@ -51,7 +50,7 @@ class BuildingModel extends AbstractModel
         return $this->floors->floor_name ?? false;
     }
 
-    public function setId(?int $id)
+    public function setId($id)
     {
         $this->id = intval($id);
     }
@@ -61,9 +60,9 @@ class BuildingModel extends AbstractModel
         return $this->id;
     }
 
-    public function setIdCity(?int $id_city)
+    public function setIdCity($id_city)
     {
-        $this->id_city = $id_city;
+        $this->id_city = intval($id_city);
     }
 
     public function getIdCity()
@@ -131,9 +130,9 @@ class BuildingModel extends AbstractModel
         return $this->height;
     }
 
-    public function setFloorLevel(?int $floor_level)
+    public function setFloorLevel($floor_level)
     {
-        $this->floor_level = $floor_level;
+        $this->floor_level = intval($floor_level);
     }
 
     public function getFloorLevel()

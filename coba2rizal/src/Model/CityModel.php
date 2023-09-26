@@ -22,7 +22,7 @@ class CityModel extends AbstractModel
     protected $city_name;
     protected $country;
 
-    protected $buildings;
+    private $buildings;
 
     public function __construct()
     {
@@ -53,9 +53,9 @@ class CityModel extends AbstractModel
     //     }
     //     }
 
-    public function setId(?int $id)
+    public function setId($id)
     {
-        $this->id = $id;
+        $this->id = intval($id);
     }
 
     public function getId()

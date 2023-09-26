@@ -28,7 +28,7 @@ class CityProvider
         return $result->getRows(new CollectionModel(new CityModel()));
     }
 
-    public function getUserById(int $id): CityModel
+    public function getCityById(int $id): CityModel
     {
         $result = $this->cityRepository->getRowByIdentifier($id);
         return $result->getFirstRow(CityModel::class);

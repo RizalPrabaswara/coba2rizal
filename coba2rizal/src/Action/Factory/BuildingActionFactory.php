@@ -6,6 +6,7 @@ namespace coba2rizal\Action\Factory;
 
 use Psr\Container\ContainerInterface;
 use coba2rizal\Action\BuildingAction;
+use coba2rizal\Provider\BuildingDetailProvider;
 use coba2rizal\Provider\BuildingProvider;
 use coba2rizal\Service\BuildingService;
 
@@ -15,6 +16,8 @@ class BuildingActionFactory
     {
         $buildingProvider = $container->get(BuildingProvider::class);
         $buildingService = $container->get(BuildingService::class);
-        return new BuildingAction($buildingProvider, $buildingService);
+
+        $buildingDetailProvider = $container->get(BuildingDetailProvider::class);
+        return new BuildingAction($buildingProvider, $buildingService, $buildingDetailProvider);
     }
 }

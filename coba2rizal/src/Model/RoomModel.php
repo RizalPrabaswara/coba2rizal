@@ -23,9 +23,9 @@ class RoomModel extends AbstractModel
     protected $room_name;
     protected $room_status;
 
-    public function setId(?int $id)
+    public function setId($id)
     {
-        $this->id = $id;
+        $this->id = intval($id);
     }
 
     public function getId()
@@ -33,9 +33,9 @@ class RoomModel extends AbstractModel
         return $this->id;
     }
 
-    public function setIdBuilding(?int $id_building)
+    public function setIdBuilding($id_building)
     {
-        $this->id_building = $id_building;
+        $this->id_building = intval($id_building);
     }
 
     public function getIdBuilding()
@@ -43,9 +43,9 @@ class RoomModel extends AbstractModel
         return $this->id_building;
     }
 
-    public function setIdFloor(?int $id_floor)
+    public function setIdFloor($id_floor)
     {
-        $this->id_floor = $id_floor;
+        $this->id_floor = intval($id_floor);
     }
 
     public function getIdFloor()

@@ -24,6 +24,8 @@ return [
             Repository\BuildingRepository::class => Repository\Factory\BuildingRepositoryFactory::class,
             Service\BuildingService::class => Service\Factory\BuildingServiceFactory::class,
 
+            Provider\BuildingDetailProvider::class => Provider\Factory\BuildingDetailProviderFactory::class,
+
             Provider\ShelfProvider::class => Provider\Factory\ShelfProviderFactory::class,
             Repository\ShelfRepository::class => Repository\Factory\ShelfRepositoryFactory::class,
             Service\ShelfService::class => Service\Factory\ShelfServiceFactory::class,
