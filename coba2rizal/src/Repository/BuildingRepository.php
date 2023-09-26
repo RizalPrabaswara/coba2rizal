@@ -23,7 +23,7 @@ class BuildingRepository extends AbstractRepository
                 ['c' => 'City'],        // join table with alias
                 'b.id_city = c.id'  // join expression
             );
-        return json_encode($select);
+        return $select->getRows();
     }
 
     // public function fetchCityById(int $id_city)

@@ -25,10 +25,16 @@ class BuildingDetailProvider
         $this->cityRepository = $cityRepository;
     }
 
-    public function listCity(): Traversable
+    public function getCityById(int $id): CityModel
     {
-        $result = $this->cityRepository->getRows();
-        //$result->join(new CollectionModel(new CityModel()));
+        $result = $this->cityRepository->getRowByIdentifier($id);
+        return $result->getFirstRow(CityModel::class);
+    }
+
+    public function listCity(int $data): Traversable
+    {
+        $status = array("id={$data}");
+        $result = $this->cityRepository->getRows(array_values($status));
         return $result->getRows(new CollectionModel(new CityModel()));
     }
 }
