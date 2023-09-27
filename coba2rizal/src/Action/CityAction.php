@@ -27,7 +27,7 @@ class CityAction extends InvokableAction
         $city_id = $this->getArgument("id", null);
 
         if (is_null($city_id)) {
-            if ($this->getQuery("create", false)) {
+            if ($this->getQuery("action", false)) {
                 return $this->render("city/form", [
                     "layout" => [
                         "content_title" => "Add New City"
@@ -36,11 +36,13 @@ class CityAction extends InvokableAction
                 ]);
             }
             $cities = $this->cityProvider->listCity();
+            $counts = $this->cityProvider->getCountryCount();
             return $this->render("city/list", [
                 "layout" => [
                     "content_title" => "City List"
                 ],
-                "cities" => $cities
+                "cities" => $cities,
+                "counts" => $counts
             ]);
         }
 

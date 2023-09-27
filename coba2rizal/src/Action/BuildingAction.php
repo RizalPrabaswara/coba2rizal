@@ -29,7 +29,7 @@ class BuildingAction extends InvokableAction
         $building_id = $this->getArgument("id", null);
 
         if (is_null($building_id)) {
-            if ($this->getQuery("create", false)) {
+            if ($this->getQuery("action", false)) {
                 return $this->render("building/form", [
                     "layout" => [
                         "content_title" => "Add New Building In This Form"
@@ -38,19 +38,13 @@ class BuildingAction extends InvokableAction
                 ]);
             }
 
-            $buildings = $this->buildingProvider->listBuilding();
-            foreach ($buildings as $building) {
-                $idcity = $building->id_city;
-                $cities = $this->buildingDetailProvider->getCityById($idcity);
-            }
-            // $cities = $this->buildingDetailProvider->listCity($idcity);
+            $buildings = $this->buildingProvider->listBuildingDetail();
 
             return $this->render("building/list", [
                 "layout" => [
                     "content_title" => "Building List"
                 ],
-                "buildings" => $buildings,
-                "cities" => $cities
+                "buildings" => $buildings
             ]);
         }
 

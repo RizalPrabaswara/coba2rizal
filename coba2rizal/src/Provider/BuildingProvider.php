@@ -32,9 +32,15 @@ class BuildingProvider
         return $result->getRows(new CollectionModel(new BuildingModel()));
     }
 
+    // public function getCityByIdCity(?int $id): CityModel
+    // {
+    //     $result = $this->cityProvider->getCityById(intval($id));
+    //     return $result->getRows(new CollectionModel(new CityModel()));
+    // }
+
     // public function getCityById(int $id): CityModel
     // {
-    //     $result = $this->cityProvider->getUserById(intval($id));
+    //     $result = $this->cityProvider->getCityById(intval($id));
     //     return $result->getFirstRow(CityModel::class);
     // }
 

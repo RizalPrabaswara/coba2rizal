@@ -26,9 +26,9 @@ class SlotModel extends AbstractModel
     // protected $slot_creation_date;
     protected $slot_modification_date;
 
-    public function setId($id)
+    public function setId(?int $id)
     {
-        $this->id = intval($id);
+        $this->id = intval($id) ?: null;
     }
 
     public function getId()
@@ -36,9 +36,9 @@ class SlotModel extends AbstractModel
         return $this->id;
     }
 
-    public function setIdShelf($id_shelf)
+    public function setIdShelf(?int $id_shelf)
     {
-        $this->id_shelf = intval($id_shelf);
+        $this->id_shelf = intval($id_shelf) ?: null;
     }
 
     public function getIdShelf()
@@ -46,9 +46,9 @@ class SlotModel extends AbstractModel
         return $this->id_shelf;
     }
 
-    public function setIdUnit($id_unit)
+    public function setIdUnit(?int $id_unit)
     {
-        $this->id_unit = intval($id_unit);
+        $this->id_unit = intval($id_unit) ?: null;
     }
 
     public function getIdUnit()

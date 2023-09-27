@@ -47,6 +47,12 @@ return [
                     ]
                 ],
                 [
+                    "route" => "/list{segment:[a-z]+}",
+                    "options" => [
+                        "action" => CityAction::class,
+                    ],
+                ],
+                [
                     "route" => "/list",
                     "options" => [
                         "action" => CityAction::class

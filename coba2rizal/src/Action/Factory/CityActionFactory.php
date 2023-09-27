@@ -15,6 +15,7 @@ class CityActionFactory
     {
         $cityProvider = $container->get(CityProvider::class);
         $cityService = $container->get(CityService::class);
+
         return new CityAction($cityProvider, $cityService);
     }
 }

@@ -23,9 +23,9 @@ class ShelfModel extends AbstractModel
     protected $shelf_unit;
     protected $status;
 
-    public function setId($id)
+    public function setId(?int $id)
     {
-        $this->id = intval($id);
+        $this->id = intval($id) ?: null;
     }
 
     public function getId()
@@ -33,9 +33,9 @@ class ShelfModel extends AbstractModel
         return $this->id;
     }
 
-    public function setIdRoom($id_room)
+    public function setIdRoom(?int $id_room)
     {
-        $this->id_room = intval($id_room);
+        $this->id_room = intval($id_room) ?: null;
     }
 
     public function getIdRoom()
@@ -53,9 +53,9 @@ class ShelfModel extends AbstractModel
         return $this->shelf_name;
     }
 
-    public function setShelfUnit($shelf_unit)
+    public function setShelfUnit(?int $shelf_unit)
     {
-        $this->shelf_unit = intval($shelf_unit);
+        $this->shelf_unit = intval($shelf_unit) ?: null;
     }
 
     public function getShelfUnit()

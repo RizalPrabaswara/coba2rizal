@@ -1,4 +1,4 @@
-<a href="<?= $this->url("/city/list", ["create" => 1]) ?>">Add New City</a>
+<a href="<?= $this->url("/city/list", ["action" => "create"]) ?>">Add New City</a>
 
 <table>
     <thead>
@@ -7,6 +7,7 @@
             <th>City Name</th>
             <th>Country</th>
             <th>Action</th>
+            <th>Jumlah Bangunan</th>
         </tr>
     </thead>
     <tbody>
@@ -14,14 +15,15 @@
             <tr>
                 <?= sprintf("<td>%s</td>", $city->id); ?>
                 <?= sprintf("<td>%s</td>", $city->city_name); ?>
-                <?= sprintf("<td>%s</td>", $city->country); ?>
+                <?= sprintf("<td>%s</td>", $city->getCountry()); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/city/%d", $city->id))); ?>
                         <?= sprintf("<li><a href=\"%s\">Delete</a></li>", $this->url(sprintf("/city/%d", $city->id), ["delete" => 1])); ?>
                     </ul>
                 </td>
+            <?php endforeach; ?>
+            <?= sprintf("<td>%s</td>", $counts); ?>
             </tr>
-        <?php endforeach; ?>
     </tbody>
 </table>

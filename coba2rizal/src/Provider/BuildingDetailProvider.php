@@ -25,14 +25,31 @@ class BuildingDetailProvider
         $this->cityRepository = $cityRepository;
     }
 
+    public function listBuildingDetail(): Traversable
+    {
+        $result = $this->buildingRepository->getRows();
+        return $result->getRows(new CollectionModel(new BuildingModel()));
+    }
+
     public function getCityById(int $id): CityModel
     {
+        // $status = array("id={$id}");
+        // $city_id = $this->cityRepository->getRows(array_values($status));
+        //$building = new CollectionModel(new BuildingModel());
         $result = $this->cityRepository->getRowByIdentifier($id);
         return $result->getFirstRow(CityModel::class);
     }
 
+    public function getBuildingCount(): int
+    {
+        $where = array("location='Surabaya'");
+        $result = $this->buildingRepository->getRowCount($where);
+        return $result;
+    }
+
     public function listCity(int $data): Traversable
     {
+        //int $data, array_values($status)
         $status = array("id={$data}");
         $result = $this->cityRepository->getRows(array_values($status));
         return $result->getRows(new CollectionModel(new CityModel()));

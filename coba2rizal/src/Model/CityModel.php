@@ -22,40 +22,21 @@ class CityModel extends AbstractModel
     protected $city_name;
     protected $country;
 
-    private $buildings;
+    protected $buildings;
 
     public function __construct()
     {
         $this->buildings = new CollectionModel(BuildingModel::class);
     }
 
-    public function getBuildingName()
+    public function getBuildingName(BuildingModel $building)
     {
         return $this->buildings;
     }
 
-    // public function addBuilding($building)
-    // {
-    //     $this->buildings->append($building);
-    // }
-
-    // class BuildingCollection extends BuildingModel {
-    //     public function __construct()
-    //     {
-    //     Parent::__construct(BuildingModel::class);
-    //     }
-
-    //     public function getBuildingByCity(string $name='')
-    //     {
-    //     return array_map($this->buildings as $building){
-    //     $building->city_name = $name;
-    //     }
-    //     }
-    //     }
-
-    public function setId($id)
+    public function setId(?int $id)
     {
-        $this->id = intval($id);
+        $this->id = intval($id) ?: null;
     }
 
     public function getId()
@@ -81,5 +62,12 @@ class CityModel extends AbstractModel
     public function getCountry()
     {
         return $this->country;
+    }
+
+    public function getArrayForDb(): array
+    {
+        return array($this->id);
+        return array($this->city_name);
+        return array($this->country);
     }
 }

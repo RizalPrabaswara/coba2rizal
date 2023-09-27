@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace coba2rizal\Provider;
 
+use coba2rizal\Model\BuildingModel;
 use coba2rizal\Model\CityModel;
+use coba2rizal\Repository\BuildingRepository;
 use coba2rizal\Repository\CityRepository;
 use Itseasy\Model\CollectionModel;
 use Traversable;
@@ -26,6 +28,16 @@ class CityProvider
         $result = $this->cityRepository->getRows();
         //$result = $this->cityRepository->getRows(array_values($kota), NULL, NULL, $limit);
         return $result->getRows(new CollectionModel(new CityModel()));
+    }
+
+    /*
+    *Mencoba Fungsi getRowCount()
+    */
+    public function getCountryCount(): int
+    {
+        $where = array("country='Indonesia'");
+        $result = $this->cityRepository->getRowCount($where);
+        return $result;
     }
 
     public function getCityById(int $id): CityModel
