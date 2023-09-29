@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace coba2rizal\Action;
 
+use coba2rizal\Model\BuildingModel;
 use coba2rizal\Model\CityModel;
 use coba2rizal\Provider\CityProvider;
 use coba2rizal\Service\CityService;
@@ -36,7 +37,7 @@ class CityAction extends InvokableAction
                 ]);
             }
             $cities = $this->cityProvider->listCity();
-            $counts = $this->cityProvider->getCountryCount();
+            $counts = $this->cityProvider->getCountryCount(1);
             return $this->render("city/list", [
                 "layout" => [
                     "content_title" => "City List"

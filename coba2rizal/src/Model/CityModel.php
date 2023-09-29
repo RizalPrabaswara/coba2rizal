@@ -29,9 +29,10 @@ class CityModel extends AbstractModel
         $this->buildings = new CollectionModel(BuildingModel::class);
     }
 
-    public function getBuildingName(BuildingModel $building)
+    public function CountBuilding(?int $id_city)
     {
-        return $this->buildings;
+        $jumlah = $this->buildings->getRows($id_city);
+        return $jumlah;
     }
 
     public function setId(?int $id)
@@ -66,8 +67,8 @@ class CityModel extends AbstractModel
 
     public function getArrayForDb(): array
     {
-        return array($this->id);
-        return array($this->city_name);
-        return array($this->country);
+        return (array)$this->id;
+        return (array)$this->city_name;
+        return (array)$this->country;
     }
 }

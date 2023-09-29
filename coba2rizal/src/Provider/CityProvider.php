@@ -14,10 +14,13 @@ use Traversable;
 class CityProvider
 {
     protected $cityRepository;
+    protected $buildingRepository;
 
-    public function __construct(CityRepository $cityRepository)
+    //public function __construct(CityRepository $cityRepository)
+    public function __construct(CityRepository $cityRepository, BuildingRepository $buildingRepository)
     {
         $this->cityRepository = $cityRepository;
+        $this->buildingRepository = $buildingRepository;
     }
 
     public function listCity(): Traversable
@@ -34,9 +37,15 @@ class CityProvider
     *Mencoba Fungsi getRowCount()
     */
     public function getCountryCount(): int
+    //public function getCountryCount(?int $data): int
     {
-        $where = array("country='Indonesia'");
-        $result = $this->cityRepository->getRowCount($where);
+        //$buildingRepository = new BuildingRepository();
+        // $where2 = array("id_city IN (SELECT id_city FROM building GROUP BY id_city HAVING COUNT(id_city)=1);");
+        // $result2 = $this->buildingRepository->getRowCount($where2);
+        // return $result2;
+        //$where = array("id_city={$data}");
+        //$result = $this->buildingRepository->getRowCount($where);
+        $result = $this->buildingRepository->getRowCount();
         return $result;
     }
 

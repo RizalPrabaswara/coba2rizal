@@ -15,15 +15,16 @@
             <tr>
                 <?= sprintf("<td>%s</td>", $city->id); ?>
                 <?= sprintf("<td>%s</td>", $city->city_name); ?>
-                <?= sprintf("<td>%s</td>", $city->getCountry()); ?>
+                <?= sprintf("<td>%s</td>", $city->country); ?>
                 <td>
                     <ul class="row-action">
                         <?= sprintf("<li><a href=\"%s\">Edit</a></li>", $this->url(sprintf("/city/%d", $city->id))); ?>
                         <?= sprintf("<li><a href=\"%s\">Delete</a></li>", $this->url(sprintf("/city/%d", $city->id), ["delete" => 1])); ?>
                     </ul>
                 </td>
+                <!-- sprintf("<td>%s</td>", $city->getCountBuilding($city->id)); ?> -->
+                <?= sprintf("<td>%s</td>", $counts); ?>
             <?php endforeach; ?>
-            <?= sprintf("<td>%s</td>", $counts); ?>
             </tr>
     </tbody>
 </table>
